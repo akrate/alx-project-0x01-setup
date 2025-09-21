@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "@/components/layout/Header";
 import PostCard from "@/components/common/PostCard";
 import PostModal from "@/components/common/PostModal";
-import { PostProps } from "@/interfaces";
+import { PostProps, PostData } from "@/interfaces";
 
 interface PostsPageProps {
   posts: PostProps[];
@@ -11,10 +11,12 @@ interface PostsPageProps {
 const Posts: React.FC<PostsPageProps> = ({ posts }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [postList, setPostList] = useState<PostProps[]>(posts);
+  const [post, setPost] = useState<PostData | null>(null); // هنا أضفنا الحالة المطلوبة
 
   const handleAddPost = (newPost: PostData) => {
     const postWithId = { ...newPost, id: postList.length + 1, userId: 1 };
     setPostList([...postList, postWithId]);
+    setPost(postWithId); // تحديث حالة post هنا
     setModalOpen(false);
   };
 
