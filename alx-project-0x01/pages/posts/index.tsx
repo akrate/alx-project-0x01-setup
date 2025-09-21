@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "@/components/layout/Header";
 import PostCard from "@/components/common/PostCard";
 import PostModal from "@/components/common/PostModal";
-import { PostProps, PostData } from "@/interfaces";
+import { PostProps} from "@/interfaces";
 
 interface PostsPageProps {
   posts: PostProps[];
